@@ -1,0 +1,181 @@
+/* Enhanced CSS with attractive visual elements */
+:root {
+    --primary-color: #6c5ce7;
+    --secondary-color: #a29bfe;
+    --accent-color: #fd79a8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --success-color: #00b894;
+    --danger-color: #d63031;
+    --border-radius: 10px;
+    --box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--dark-color);
+  }
+  
+  .todo-container {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    transform: translateY(-5px);
+    transition: var(--transition);
+  }
+  
+  .todo-container:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+  
+  .input-container {
+    display: flex;
+    margin-bottom: 25px;
+    gap: 12px;
+  }
+  
+  #taskInput {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 2px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    transition: var(--transition);
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  #taskInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+    background-color: white;
+  }
+  
+  #taskInput::placeholder {
+    color: #adb5bd;
+  }
+  
+  #addTaskBtn {
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  #addTaskBtn:hover {
+    background-color: #5a4bd1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  #addTaskBtn:active {
+    transform: translateY(0);
+  }
+  
+  #taskList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+  }
+  
+  .task-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-text {
+    flex-grow: 1;
+    margin-left: 15px;
+    font-size: 16px;
+    transition: var(--transition);
+  }
+  
+  .completed {
+    text-decoration: line-through;
+    color: #adb5bd;
+    opacity: 0.8;
+  }
+  
+  .delete-btn {
+    background-color: var(--danger-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: var(--transition);
+    opacity: 0.8;
+  }
+  
+  .delete-btn:hover {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  
+  .task-checkbox {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    accent-color: var(--success-color);
+    transform: scale(1.2);
+    transition: var(--transition);
+  }
+  
+  /* Animation for new tasks */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .task-item {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  /* Empty state styling */
+  #taskList:empty::after {
+    content: "No tasks yet! Add one above ✨";
+    display: block;
+    text-align: center;
+    padding: 20px;
+    color: #adb5bd;
+    font-style: italic;
+  }
